@@ -103,14 +103,6 @@ layout: default
       <aside class="space-y-8 mt-12 md:mt-0">{% include sidebar.html %}</aside>
     </main>
 
-    <footer class="border-t border-white/10 mt-12 pt-8">
-      <div
-        class="max-w-7xl mx-auto px-4 py-8 text-center text-xs text-white/50"
-      >
-        © <span id="year"></span> {{ site.title }} — All rights reserved.
-      </div>
-    </footer>
-
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
