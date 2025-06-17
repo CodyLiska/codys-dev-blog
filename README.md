@@ -12,11 +12,10 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
 
 - 📖 Markdown-based posts with excerpt support
 - 🎨 Tailwind CSS UI with a clean dark theme
-- 🧩 Custom layouts (no `minima`) and includes
 - 📚 Sidebar with categories, recent posts, and recent comments
-- 🗂 Blog post cards with images + clean metadata
-- 💬 Built-in comment form structure
-- ⚙️ GitHub Pages friendly (no build step required)
+- 🗂 Blog post cards
+- 💬 User comment form
+- ⚙️ GitHub Pages friendly
 
 ---
 
