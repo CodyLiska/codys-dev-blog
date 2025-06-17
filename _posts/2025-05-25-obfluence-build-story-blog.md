@@ -10,7 +10,7 @@ excerpt_separator: <!--more-->
 
 ---
 
-## It Started with Friction It Started with Friction
+## It Started with Friction
 
 I didn’t set out to build a Confluence replacement. I just wanted to document a few projects. But every time I opened Confluence, I found myself… waiting.
 
@@ -26,7 +26,7 @@ So I went looking for something better.
 
 ---
 
-## I Already Had Obsidian I Already Had Obsidian. I Just Needed to Build _Around_ It.
+## I Already Had Obsidian. I Just Needed to Build _Around_ It.
 
 Obsidian is great. It’s fast, flexible, and markdown-native. But it’s also a blank canvas. I knew I’d have to design something from the ground up that worked like a documentation system — something structured, scalable, and team-friendly.
 
@@ -34,7 +34,7 @@ My goal wasn’t to replicate Confluence. It was to **reimagine it for developer
 
 ---
 
-## Step One: Folder Architecture Step One: Folder Architecture
+## Step One: Folder Architecture
 
 I started with the bones — the structure.
 
@@ -56,7 +56,7 @@ Each folder would contain multiple documents. But more importantly, each would h
 
 ---
 
-## Step Two: The Plugins That Made It Possible Step Two: The Plugins That Made It Possible
+## Step Two: The Plugins That Made It Possible
 
 Obsidian is powerful on its own, but the magic comes from plugins. Here’s what unlocked the real power:
 
@@ -88,7 +88,7 @@ Together, they gave me real metadata control. I could toggle a note’s status f
 
 ---
 
-## What Didn’t Work What Didn’t Work
+## What Didn’t Work
 
 There were plenty of false starts.
 
@@ -101,7 +101,7 @@ But I learned fast — mostly because I _had to_.
 
 ---
 
-## What I Was Really Trying to Build What I Was Really Trying to Build
+## What I Was Really Trying to Build
 
 Looking back, it wasn’t just a better documentation system.
 
@@ -119,7 +119,7 @@ And I think I got there.
 
 ---
 
-## The Final Output The Final Output
+## The Final Output
 
 I named it **Obfluence** — a blend of _Obsidian_ and _Confluence_.
 
@@ -135,7 +135,7 @@ Everything lives in Obsidian. No more waiting. No more clunky UIs. Just local ma
 
 ---
 
-## What I Learned What I Learned
+## What I Learned
 
 - Metadata is your best friend
 - Consistency makes automation possible
@@ -144,7 +144,7 @@ Everything lives in Obsidian. No more waiting. No more clunky UIs. Just local ma
 
 ---
 
-## What’s Next What’s Next
+## What’s Next
 
 I’m making this public for others to use. If you’re tired of bloated tools, or just want a documentation system that respects your time, give _Obfluence_ a try.
 
@@ -154,7 +154,7 @@ And sometimes, that’s all you need.
 
 ---
 
-## GitHub GitHub
+## GitHub
 
 > Coming soon: `github.com/yourusername/obfluence`
 
