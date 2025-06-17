@@ -2,17 +2,59 @@
 layout: default
 ---
 
-<main class="max-w-3xl mx-auto px-4 py-10 prose prose-invert">
-  <h2>Recent Posts</h2>
-  <ul>
-    {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url | relative_url }}" class="text-sky-400 hover:underline">
-          {{ post.title }}
-        </a>
-        <br/>
-        <small class="text-white/50">{{ post.date | date: "%B %d, %Y" }}</small>
-      </li>
-    {% endfor %}
-  </ul>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ site.title }}</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <style>
+    .glass {
+      border: 1px solid rgb(255 255 255 / 0.2);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-900 text-slate-200 antialiased">
+  <header class="border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-6 text-center">
+      <h1 class="font-bold text-4xl md:text-5xl text-white tracking-wider">
+        {{ site.title }}
+      </h1>
+      <p class="text-white/50 mt-2 text-lg">{{ site.description }}</p>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-4 py-10 md:grid md:grid-cols-3 md:gap-8">
+    <section class="md:col-span-2">
+      {% for post in site.posts %}
+        <article class="glass rounded-2xl p-6 mb-6 hover:ring-1 hover:ring-sky-400 transition">
+          <h2 class="text-2xl font-semibold">
+            <a href="{{ post.url | relative_url }}" class="hover:text-sky-400 transition">
+              {{ post.title }}
+            </a>
+          </h2>
+          <p class="text-sm text-white/50 mb-2">
+            {{ post.date | date: "%B %d, %Y" }}
+          </p>
+          <p class="text-white/80">
+            {{ post.excerpt | strip_html | truncatewords: 40 }}
+          </p>
+          <a href="{{ post.url | relative_url }}" class="inline-block mt-4 text-sky-400 hover:underline">Read more →</a>
+        </article>
+      {% endfor %}
+    </section>
+    <aside class="space-y-8 mt-12 md:mt-0">
+      {% include sidebar.html %}
+    </aside>
+  </main>
+  <footer class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-center text-xs text-white/50">
+      © <span id="year"></span> {{ site.title }} — All rights reserved.
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
