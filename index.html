@@ -43,18 +43,18 @@ layout: default
           <p class="text-sm text-white/50 mb-2">
             {{ post.date | date: "%B %d, %Y" }}
           </p>
-          <p class="text-white/80">
-            {{ post.excerpt | strip_html | truncatewords: 40 }}
-          </p>
-          <a
-            href="{{ post.url | relative_url }}"
-            class="inline-block mt-4 text-sky-400 hover:underline"
-            >Read more →</a
-          >
+          <p class="text-white/80 mb-2">{{ post.excerpt }}</p>
+          <div class="text-right">
+            <a
+              href="{{ post.url | relative_url }}"
+              class="text-sky-400 hover:underline"
+              >Read more →</a
+            >
+          </div>
         </article>
         {% endfor %}
 
-        <!-- Comment Form Section -->
+        <!-- Comment Form -->
         <section class="glass rounded-2xl p-8 mt-12">
           <h3 class="text-xl font-semibold mb-4">Leave a Comment</h3>
           <form class="space-y-6" action="#" method="post">
@@ -92,7 +92,7 @@ layout: default
             </div>
             <button
               type="submit"
-              class="inline-flex items-center px-4 py-2 rounded-md bg-slate-200 text-neutral-900 font-semibold hover:bg-white transition"
+              class="px-4 py-2 mt-2 rounded-md bg-slate-200 text-neutral-900 font-semibold hover:bg-white transition"
             >
               Submit
             </button>
@@ -103,12 +103,16 @@ layout: default
       <aside class="space-y-8 mt-12 md:mt-0">{% include sidebar.html %}</aside>
     </main>
 
-    <footer class="border-t border-white/10">
+    <footer class="border-t border-white/10 mt-12 pt-8">
       <div
         class="max-w-7xl mx-auto px-4 py-8 text-center text-xs text-white/50"
       >
         © <span id="year"></span> {{ site.title }} — All rights reserved.
       </div>
     </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
