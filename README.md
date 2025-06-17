@@ -2,7 +2,7 @@
 
 A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled using [Tailwind CSS](https://tailwindcss.com). Posts are written in Markdown and the site is automatically deployed to GitHub Pages.
 
-## 🌐 Live Demo
+## 🌐 Live
 
 👉 [https://codyliska.github.io/codys-dev-blog](https://codyliska.github.io/codys-dev-blog)
 
