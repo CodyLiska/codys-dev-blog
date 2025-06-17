@@ -2,30 +2,61 @@
 
 A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled using [Tailwind CSS](https://tailwindcss.com). Posts are written in Markdown and the site is automatically deployed to GitHub Pages.
 
-![screenshot](assets/images/remnux-lab.png)
+## 🌐 Live
 
-## 🔧 Tech Stack
+👉 [https://codyliska.github.io/codys-dev-blog](https://codyliska.github.io/codys-dev-blog)
 
-- Jekyll + GitHub Pages
-- Tailwind CSS (CDN)
-- Markdown posts under `_posts/`
-- Custom layouts, includes, and styling
+---
+
+## ✨ Features
+
+- 📖 Markdown-based posts with excerpt support
+- 🎨 Tailwind CSS UI with a clean dark theme
+- 📚 Sidebar with categories, recent posts, and recent comments
+- 🗂 Blog post cards
+- 💬 User comment form
+- ⚙️ GitHub Pages friendly
+
+---
+
+## 🛠 Tech Stack
+
+- [Jekyll](https://jekyllrb.com) (GitHub Pages-native)
+- [Tailwind CSS](https://tailwindcss.com) (CDN import)
+- [Markdown](https://daringfireball.net/projects/markdown/)
+- [Liquid templates](https://shopify.github.io/liquid/)
+
+---
 
 ## 🚀 Getting Started
 
-```bash
-git clone https://github.com/CodyLiska/codys-dev-blog.git
-cd codys-dev-blog
-```
-
-Create new posts under `_posts/`:
-
-```
-YYYY-MM-DD-title.md
-```
-
-Then push to GitHub!
+Create new posts under: 
+- `_posts/`
+Use this naming convention for posts:
+- `YYYY-MM-DD-title.md`
+Basic Starter Template for a post:
+  ```markdown
+  ---
+  layout: post
+  title: "My New Post"
+  date: 2024-06-18 12:00:00 -0700
+  categories: [dev, linux]
+  excerpt_separator: <!--more-->
+  image: /assets/images/post-sample.png
+  ---
+  
+  Intro text that appears in the preview.
+  
+  <!--more-->
+  
+  Rest of the article goes here...
+  ```
 
 ## ✍️ License
 
-MIT
+MIT — free to use and adapt.
+
+## 🤝 Acknowledgements
+
+Built with ❤️ using Jekyll and Tailwind CSS.
+
