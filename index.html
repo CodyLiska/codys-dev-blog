@@ -5,102 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cody’s Dev Blog</title>
 
-  <!-- Tailwind 3.x CDN build – great for GitHub Pages “no-build” deployments -->
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
-  <!-- Custom tweak(s) without a build-step -->
+  <!-- Optional Tailwind config tweak -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#38bdf8', // Tailwind's sky-400
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    /* Glassy card borders */
     .glass {
-      border: 1px solid rgb(255 255 255 / .25);
+      border: 1px solid rgb(255 255 255 / 0.2);
       backdrop-filter: blur(4px);
     }
   </style>
 </head>
 
-<body class="min-h-screen bg-neutral-900 text-slate-200 antialiased selection:bg-primary selection:text-neutral-900">
+<body class="min-h-screen bg-neutral-900 text-slate-200 antialiased">
   <header class="border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 py-6 text-center">
-      <h1 class="font-bold text-4xl md:text-5xl text-white tracking-wider [font-family:'Permanent_Marker',cursive]">
+      <h1 class="font-bold text-4xl md:text-5xl text-white tracking-wider">
         Cody’s Dev Blog
       </h1>
     </div>
   </header>
 
-  <!-- Main grid -->
   <main class="max-w-7xl mx-auto px-4 py-10 md:grid md:grid-cols-3 md:gap-8">
-
-    <!-- Article column -->
+    <!-- Article Column -->
     <article class="md:col-span-2">
       <section class="glass rounded-2xl p-8 mb-8 md:mb-0 prose prose-invert max-w-none">
-        <!-- Replace everything below with your markdown-to-HTML output -->
         <h2 class="!mt-0">Article Title</h2>
         <p class="lead">Opening paragraph that hooks the reader 🤘</p>
 
         <h3>Section Heading</h3>
-        <p>Lorem ipsum dolor sit amet…</p>
-
-        <!-- … -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel sapien vel libero efficitur aliquet.</p>
       </section>
 
-      <!-- Reply / comment form -->
+      <!-- Reply / Comment Form -->
       <section id="comments" class="glass rounded-2xl p-8 mt-10">
         <h3 class="text-xl font-semibold mb-4">Reply</h3>
         <form class="space-y-6" action="#" method="post">
           <div>
             <label for="name" class="block text-sm font-medium">Name</label>
             <input id="name" name="name" type="text" required
-                   class="mt-1 block w-full rounded-md bg-neutral-800 border border-white/20 p-2 focus:border-primary focus:ring-primary" />
+              class="mt-1 block w-full rounded-md bg-neutral-800 border border-white/20 p-2 focus:border-primary focus:ring-primary" />
           </div>
 
           <div>
             <label for="email" class="block text-sm font-medium">Email</label>
             <input id="email" name="email" type="email" required
-                   class="mt-1 block w-full rounded-md bg-neutral-800 border border-white/20 p-2 focus:border-primary focus:ring-primary" />
+              class="mt-1 block w-full rounded-md bg-neutral-800 border border-white/20 p-2 focus:border-primary focus:ring-primary" />
           </div>
 
           <div>
             <label for="comment" class="block text-sm font-medium">Comment</label>
             <textarea id="comment" name="comment" rows="5" required
-                      class="mt-1 block w-full rounded-md bg-neutral-800 border border-white/20 p-2 focus:border-primary focus:ring-primary"></textarea>
+              class="mt-1 block w-full rounded-md bg-neutral-800 border border-white/20 p-2 focus:border-primary focus:ring-primary"></textarea>
           </div>
 
-          <button type="submit" class="inline-flex items-center px-4 py-2 rounded-md bg-primary hover:bg-primary/90 text-neutral-900 font-semibold transition">
+          <button type="submit"
+            class="inline-flex items-center px-4 py-2 rounded-md bg-slate-200 text-neutral-900 font-semibold hover:bg-white transition">
             Submit
           </button>
         </form>
       </section>
     </article>
 
-    <!-- Sidebar column -->
+    <!-- Sidebar Column -->
     <aside class="space-y-8 mt-12 md:mt-0">
-      <!-- Category list -->
+      <!-- Categories -->
       <section class="glass rounded-2xl p-6">
         <h3 class="text-lg font-semibold mb-4">Categories</h3>
         <ul class="space-y-2">
-          <li><a href="#" class="hover:text-primary transition">JavaScript</a></li>
-          <li><a href="#" class="hover:text-primary transition">DevOps</a></li>
-          <li><a href="#" class="hover:text-primary transition">AWS</a></li>
-          <!-- … -->
+          <li><a href="#" class="block hover:text-primary transition">JavaScript</a></li>
+          <li><a href="#" class="block hover:text-primary transition">DevOps</a></li>
+          <li><a href="#" class="block hover:text-primary transition">AWS</a></li>
         </ul>
       </section>
 
-      <!-- Recent posts -->
+      <!-- Recent Posts -->
       <section class="glass rounded-2xl p-6">
         <h3 class="text-lg font-semibold mb-4">Recent Posts</h3>
         <ul class="space-y-2">
-          <li><a href="#" class="hover:text-primary transition">Malware Lab on a Laptop</a></li>
-          <li><a href="#" class="hover:text-primary transition">Fixing qBittorrent-VPN 401</a></li>
-          <!-- … -->
+          <li><a href="#" class="block hover:text-primary transition">Malware Lab on a Laptop</a></li>
+          <li><a href="#" class="block hover:text-primary transition">Fixing qBittorrent-VPN 401</a></li>
+          <li><a href="#" class="block hover:text-primary transition">GRUB Boot Troubleshooting</a></li>
         </ul>
       </section>
 
-      <!-- Recent comments -->
+      <!-- Recent Comments -->
       <section class="glass rounded-2xl p-6">
         <h3 class="text-lg font-semibold mb-4">Recent Comments</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-primary transition">“Great write-up!” — Alice</a></li>
-          <!-- … -->
+          <li><a href="#" class="block hover:text-primary transition">“Great write-up!” — Alice</a></li>
+          <li><a href="#" class="block hover:text-primary transition">“Thanks for the Docker tip” — Bob</a></li>
         </ul>
       </section>
     </aside>
@@ -113,7 +119,6 @@
   </footer>
 
   <script>
-    /* Tiny helper for the copyright year */
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
