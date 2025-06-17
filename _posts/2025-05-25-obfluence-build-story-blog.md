@@ -6,12 +6,6 @@ categories: [confluence, organization, project-management]
 excerpt_separator: <!--more-->
 ---
 
-<p align="center">
-  <img src="logo.png" alt="Obfluence Logo" width="150"/>
-</p>
-
-# From Frustration to Flow From Frustration to Flow: How I Replaced Confluence with Obsidian
-
 > “I just wanted documentation that respected my time — and my keyboard.”
 
 ---
