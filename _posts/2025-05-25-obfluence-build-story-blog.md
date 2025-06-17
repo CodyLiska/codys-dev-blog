@@ -23,7 +23,7 @@ Eventually, I stopped writing.
 And that’s when it clicked — the _tool_ was getting in the way of the _thinking_.
 
 So I went looking for something better.
-
+<!--more-->
 ---
 
 ## I Already Had Obsidian. I Just Needed to Build _Around_ It.
