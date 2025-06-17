@@ -1,5 +1,5 @@
 title: Cody's Dev Blog
-description: Personal dev blog
+description: Personal dev blog sharing lessons from projects and experiments.
 baseurl: "/codys-dev-blog"
 url: "https://codyliska.github.io"
 markdown: kramdown
