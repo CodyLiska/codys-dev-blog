@@ -1,3 +1,15 @@
+---
+layout: post
+title: "Synergy FC Team Tracker 1.1.0 Release: Production Ready!"
+date: 2024-07-02 10:00:00 -0700
+categories: [react, web-dev, deployment]
+excerpt_separator: <!--more-->
+---
+
+We're excited to announce the latest update to **Synergy FC Team Tracker** — version **1.1.0** is here! This release prepares the platform for seamless production deployments with critical improvements to routing stability and deployment workflows.
+
+<!--more-->
+
 # Synergy FC Team Tracker 1.1.0 Release: Production Ready!
 
 We’re excited to announce the latest update to **Synergy FC Team Tracker** — version **1.1.0** is here! 🚀

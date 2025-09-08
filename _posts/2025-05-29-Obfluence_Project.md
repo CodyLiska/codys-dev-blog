@@ -1,4 +1,16 @@
-# 🧠 Obfluence: A Developer’s Confluence Replacement in Obsidian
+---
+layout: post
+title: "Obfluence: A Developer's Confluence Replacement in Obsidian"
+date: 2025-05-29 10:00:00 -0700
+categories: [obsidian, documentation, productivity]
+excerpt_separator: <!--more-->
+---
+
+What if Confluence had local-first markdown, full control, and an actual soul? Like many developers, I've wrestled with documentation platforms and eventually built my own solution using Obsidian.
+
+<!--more-->
+
+# 🧠 Obfluence: A Developer's Confluence Replacement in Obsidian
 
 > “What if Confluence had local-first markdown, full control, and an actual soul?”
 
