@@ -30,11 +30,11 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
 
 ## 🚀 Getting Started
 
-Create new posts under: 
-- `_posts/`
-Use this naming convention for posts:
-- `YYYY-MM-DD-title.md`
-Basic Starter Template for a post:
+- Create new posts under: 
+  - `_posts/`
+- Use this naming convention for posts:
+  - `YYYY-MM-DD-title.md`
+- Basic Starter Template for a post:
   ```markdown
   ---
   layout: post
