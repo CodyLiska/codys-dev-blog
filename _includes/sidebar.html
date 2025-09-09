@@ -2,6 +2,9 @@
 <section class="glass rounded-2xl p-6">
   <h3 class="text-lg font-semibold mb-4">Categories</h3>
   <ul class="space-y-2">
+    {% for category in site.categories %}
+      <li><a href="{{ site.baseurl }}/categories/{{ category[0] | slugify }}" class="block hover:text-sky-400 transition">{{ category[0] }} ({{ category[1] | size }})</a></li>
+    {% endfor %}
     <!-- NEED TO DYNAMICALLY POPULATE THESE lis  -->
     <!-- <li><a href="#" class="block hover:text-sky-400 transition">JavaScript</a></li>
     <li><a href="#" class="block hover:text-sky-400 transition">DevOps</a></li>
@@ -23,6 +26,9 @@
 <section class="glass rounded-2xl p-6">
   <h3 class="text-lg font-semibold mb-4">Recent Comments</h3>
   <ul class="space-y-2 text-sm">
+    {% for comment in site.data.comments limit:5 %}
+      <li><a href="{{ comment.url }}" class="block hover:text-sky-400 transition">“{{ comment.text | truncate: 50 }}” — {{ comment.author }}</a></li>
+    {% endfor %}
     <!-- NEED TO DYNAMICALLY POPULATE THESE lis  -->
     <!-- <li><a href="#" class="block hover:text-sky-400 transition">“Great write-up!” — Alice</a></li>
     <li><a href="#" class="block hover:text-sky-400 transition">“Super helpful post!” — Bob</a></li>
