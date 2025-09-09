@@ -63,3 +63,4 @@ Built with ❤️ using Jekyll and Tailwind CSS.
 ## Dev Notes
 - [ ] Categories in sidebar should be limited to the top 5 most common
 - [ ] Links to categories not working
+- [ ] Not sure how comments work
