@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building Cody's Dev Blog: A Journey from Design to Deployment"
-date: 2025-06-17 16:19:00 -0700
+date: 2024-06-18 10:00:00 -0700
 categories: [jekyll, web-dev, github-pages]
 excerpt_separator: <!--more-->
 ---
@@ -24,7 +24,6 @@ The journey kicked off with a visual mockup. I uploaded a JPEG of the desired la
 Next, I needed to feed Markdown posts into this layout. That’s where Jekyll came in.
 
 I learned that:
-
 - Jekyll supports Markdown out of the box
 - Posts must go in a `_posts/` directory and follow the `YYYY-MM-DD-title.md` format
 - Front matter is crucial for titles, categories, and excerpt handling
