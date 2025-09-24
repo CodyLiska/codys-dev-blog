@@ -1,19 +1,14 @@
 <!-- Categories -->
 <section class="glass rounded-2xl p-6">
   <h3 class="text-lg font-semibold mb-4">Categories</h3>
-  <ul class="space-y-2">
-    {% assign sorted_categories = site.categories | sort | reverse %}
-    {% for category in sorted_categories limit: 5 %}
+  <ul>
+    {% for category in site.categories %}
     <li>
       <a href="{{ site.baseurl }}/categories/{{ category[0] | slugify }}/">
         {{ category[0] }} ({{ category[1].size }})
       </a>
     </li>
     {% endfor %}
-    <!-- NEED TO DYNAMICALLY POPULATE THESE lis  -->
-    <!-- <li><a href="#" class="block hover:text-sky-400 transition">JavaScript</a></li>
-    <li><a href="#" class="block hover:text-sky-400 transition">DevOps</a></li>
-    <li><a href="#" class="block hover:text-sky-400 transition">Malware</a></li> -->
   </ul>
 </section>
 
