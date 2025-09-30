@@ -8,9 +8,9 @@ excerpt_separator: <!--more-->
 
 I didn’t plan on spending my evening building a complete cross-platform dev environment — but here we are.
 
-It started with a simple frustration: switching between **macOS** and **Windows (via WSL)** for development. Both work fine individually, but the little differences — path quirks, shell defaults, git configs, VS Code behaving slightly differently — were creating a steady drip of friction. Every switch meant more mental overhead.
-
 <!--more-->
+
+It started with a simple frustration: switching between **macOS** and **Windows (via WSL)** for development. Both work fine individually, but the little differences — path quirks, shell defaults, git configs, VS Code behaving slightly differently — were creating a steady drip of friction. Every switch meant more mental overhead.
 
 ## First Attempts
 
