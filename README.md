@@ -4,18 +4,18 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
 
 ## 🌐 Live
 
-👉 [https://codyliska.github.io/codys-dev-blog](https://codyliska.github.io/codys-dev-blog)
+- [https://codyliska.github.io/codys-dev-blog](https://codyliska.github.io/codys-dev-blog)
 
 ---
 
 ## ✨ Features
 
-- 📖 Markdown-based posts with excerpt support
-- 🎨 Tailwind CSS UI with a clean dark theme
-- 📚 Sidebar with categories, recent posts, and recent comments
-- 🗂 Blog post cards
-- 💬 User comment form
-- ⚙️ GitHub Pages friendly
+- Markdown-based posts with excerpt support
+- Tailwind CSS UI with a clean dark theme
+- Sidebar with categories, recent posts, and recent comments
+- Blog post cards
+- User comment form
+- GitHub Pages friendly
 
 ---
 
@@ -58,7 +58,7 @@ MIT — free to use and adapt.
 
 ## 🤝 Acknowledgements
 
-Built with ❤️ using Jekyll and Tailwind CSS.
+Built with Jekyll and Tailwind CSS.
 
 ## Dev Notes
 - [ ] Categories in sidebar should be limited to the top 5 most common
