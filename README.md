@@ -30,11 +30,12 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
 
 ## 🚀 Getting Started
 
-- Create new posts under: 
+- Create new posts under:
   - `_posts/`
 - Use this naming convention for posts:
   - `YYYY-MM-DD-title.md`
 - Basic Starter Template for a post:
+
   ```markdown
   ---
   layout: post
@@ -44,11 +45,11 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
   excerpt_separator: <!--more-->
   image: /assets/images/post-sample.png
   ---
-  
+
   Intro text that appears in the preview.
-  
+
   <!--more-->
-  
+
   Rest of the article goes here...
   ```
 
@@ -61,6 +62,7 @@ MIT — free to use and adapt.
 Built with Jekyll and Tailwind CSS.
 
 ## Dev Notes
+
 - [ ] Categories in sidebar should be limited to the top 5 most common
 - [ ] Links to categories not working
 - [ ] Not sure how comments work
