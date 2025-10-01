@@ -2,13 +2,13 @@
 
 A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled using [Tailwind CSS](https://tailwindcss.com). Posts are written in Markdown and the site is automatically deployed to GitHub Pages.
 
-## 🌐 Live
+## Live
 
 - [https://codyliska.github.io/codys-dev-blog](https://codyliska.github.io/codys-dev-blog)
 
 ---
 
-## ✨ Features
+## Features
 
 - Markdown-based posts with excerpt support
 - Tailwind CSS UI with a clean dark theme
@@ -19,7 +19,7 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - [Jekyll](https://jekyllrb.com) (GitHub Pages-native)
 - [Tailwind CSS](https://tailwindcss.com) (CDN import)
@@ -28,7 +28,7 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 - Create new posts under:
   - `_posts/`
@@ -53,10 +53,10 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
   Rest of the article goes here...
   ```
 
-## ✍️ License
+## License
 
 MIT — free to use and adapt.
 
-## 🤝 Acknowledgements
+## Acknowledgements
 
 Built with Jekyll and Tailwind CSS.
