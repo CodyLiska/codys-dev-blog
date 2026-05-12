@@ -4,7 +4,7 @@ A personal technical blog built with [Jekyll](https://jekyllrb.com) and styled u
 
 ## Live
 
-- [https://codyliska.github.io/codys-dev-blog](https://codyliska.github.io/codys-dev-blog)
+- [https://blog.codyliska.com](https://blog.codyliska.com)
 
 ---
 
