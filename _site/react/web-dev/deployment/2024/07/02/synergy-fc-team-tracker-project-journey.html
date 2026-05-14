@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building the Synergy FC Team Tracker: My Journey from Idea to App</title>
+  <meta name="description" content="I wanted to give our coachesa better way to track player development. Google Sheets had gotten us pretty far, but once multiple coaches, skills, and weekly r...">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <style>
+    .glass { border: 1px solid rgb(255 255 255 / 0.2); backdrop-filter: blur(4px); }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-900 text-slate-200 antialiased">
+  <nav class="text-center py-4 border-b border-white/10">
+    <a href="/codys-dev-blog/" class="text-2xl font-semibold hover:text-sky-400">Home</a>
+  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-10 prose prose-invert">
+  <h1>Building the Synergy FC Team Tracker: My Journey from Idea to App</h1>
+  <p class="text-sm text-white/50">July 02, 2024</p>
+  
+  <p>I wanted to give our coachesa better way to track player development. Google Sheets had gotten us pretty far, but once multiple coaches, skills, and weekly ratings entered the picture, it started to feel like juggling flaming soccer balls.</p>
+
+<!--more-->
+
+<h1 id="building-the-synergy-fc-team-tracker-my-journey-from-idea-to-app">Building the Synergy FC Team Tracker: My Journey from Idea to App</h1>
+
+<p>When I first set out to build the <strong>Synergy FC Team Tracker</strong>, I had one
+simple goal: give our coaches (myself included) a better way to track
+player development. Google Sheets had gotten us pretty far, but once
+multiple coaches, skills, and weekly ratings entered the picture, it
+started to feel like juggling flaming soccer balls. It was time for a
+real app.</p>
+
+<h3 id="step-1-the-big-idea">Step 1: The Big Idea</h3>
+
+<p>The vision was clear:\</p>
+<ul>
+  <li>A web app where each coach could log in\</li>
+  <li>Players tied to the right coach\</li>
+  <li>Ratings broken down into categories like <em>psychological, physical,
+social-emotional, and technical</em>\</li>
+  <li>Charts and dashboards to make sense of the data</li>
+</ul>
+
+<p>I decided on a <strong>Vue 3 frontend</strong> and a <strong>Node.js/MongoDB backend</strong> —
+mostly because that stack felt light, flexible, and something I could
+iterate on fast in my home lab.</p>
+
+<h3 id="step-2-early-wins-and-growing-pains">Step 2: Early Wins and Growing Pains</h3>
+
+<p>At first, things moved quickly. I set up player creation forms, coach
+dashboards, and even pulled in team stats. But then the “little” details
+hit me hard:</p>
+
+<ul>
+  <li><strong>CORS errors</strong> after I renamed <code class="language-plaintext highlighter-rouge">/backend</code> to <code class="language-plaintext highlighter-rouge">/api</code> (rookie move,
+but a good reminder of how tightly frontend and backend need to stay
+in sync).\</li>
+  <li>Struggles with <strong>form state</strong>, like resetting checkboxes or clearing
+update forms after saving. Small things, but they matter a lot for
+usability.\</li>
+  <li><strong>Pagination</strong> on eligibility calls. I had never tackled pagination
+in C# services before, so it was a steep but worthwhile climb.</li>
+</ul>
+
+<h3 id="step-3-multi-coach-madness">Step 3: Multi-Coach Madness</h3>
+
+<p>The biggest challenge? <strong>Multi-coach access.</strong></p>
+
+<p>At first, I tied access control to player IDs through a <code class="language-plaintext highlighter-rouge">TEAM_MAP</code>. It
+worked, but it was clunky. Then I shifted to using <strong>roles and email
+addresses</strong> as the main drivers. That was a game-changer:\</p>
+<ul>
+  <li>Admins and head coaches could see all players.\</li>
+  <li>Assistant coaches only saw their own.\</li>
+  <li>We added JWT handling, refresh tokens, and HTTP-only cookies for
+secure sessions.</li>
+</ul>
+
+<p>This was the first time I built <strong>role-based access control</strong> from
+scratch, and while I pulled out a few hairs, it was one of those moments
+where you realize: <em>oh, this is how real systems handle access.</em></p>
+
+<h3 id="step-4-dashboards--data">Step 4: Dashboards &amp; Data</h3>
+
+<p>Once authentication was stable, I focused on making the coach dashboards
+<strong>actually useful</strong>. That meant:\</p>
+<ul>
+  <li>Team skill averages, editable when needed.\</li>
+  <li>Charts that updated dynamically when player data changed.\</li>
+  <li>Grouping traits by category on a single page (instead of scattering
+them across multiple).</li>
+</ul>
+
+<p>I even got nerdy with <strong>timestamp formatting issues</strong> and normalization
+in spreadsheets before moving that logic fully into the app. Every bug
+taught me a little more about <strong>data consistency</strong>.</p>
+
+<h3 id="step-5-lessons-learned">Step 5: Lessons Learned</h3>
+
+<p>Looking back, a few lessons stand out:</p>
+
+<ul>
+  <li><strong>Don’t underestimate “small” UX details.</strong> Resetting a checkbox or
+keeping timestamps consistent sounds minor, but it can make or break
+the experience.\</li>
+  <li><strong>Role-based access is worth doing right.</strong> Switching from hardcoded
+ID maps to a role-based system was tough, but it unlocked real
+scalability.\</li>
+  <li><strong>Iteration beats perfection.</strong> I didn’t get everything right the
+first time (or the second), but each pass made the app better.\</li>
+  <li><strong>Have fun with it.</strong> Yes, there were moments I wanted to punt my
+laptop like a soccer ball, but seeing data flow across dashboards
+made it all worth it.</li>
+</ul>
+
+<h3 id="step-6-whats-next">Step 6: What’s Next?</h3>
+
+<p>The Team Tracker is already miles ahead of where we started. Coaches can
+log in, see their players, and get meaningful insights in seconds. But
+the roadmap is still wide open — maybe mobile support, deeper
+analytics, or even AI-powered insights on player development (a coach
+can dream, right?).</p>
+
+<hr />
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>Building the Synergy FC Team Tracker has been equal parts <strong>software
+engineering bootcamp</strong> and <strong>soccer coaching hackathon</strong>. I learned new
+tricks in Vue, Node, and MongoDB; fought my way through auth flows; and
+came out the other side with an app that actually helps my team.</p>
+
+<p>It wasn’t always smooth, but then again, neither is soccer. Sometimes
+you trip, sometimes you score, but the key is to keep playing. And for
+me, this project has been one of the most rewarding games yet.</p>
+
+</main>
+
+  <footer class="mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/50 py-6">
+    © <span id="year"></span> Cody's Dev Blog — All rights reserved.<br>
+    <a href="https://github.com/CodyLiska/codys-dev-blog" class="text-sky-400 hover:underline">GitHub</a>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Cody's Dev Blog: A Journey from Design to Deployment</title>
+  <meta name="description" content="What started as a simple idea — “I want a clean blog to post my dev writeups” — turned into a detailed walkthrough of static site building, templating, versi...">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <style>
+    .glass { border: 1px solid rgb(255 255 255 / 0.2); backdrop-filter: blur(4px); }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-900 text-slate-200 antialiased">
+  <nav class="text-center py-4 border-b border-white/10">
+    <a href="/codys-dev-blog/" class="text-2xl font-semibold hover:text-sky-400">Home</a>
+  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-10 prose prose-invert">
+  <h1>Building Cody's Dev Blog: A Journey from Design to Deployment</h1>
+  <p class="text-sm text-white/50">June 18, 2024</p>
+  
+  <p>What started as a simple idea — “I want a clean blog to post my dev writeups” — turned into a detailed walkthrough of static site building, templating, versioning, and deployment. This post outlines the entire process I went through to build <strong>Cody’s Dev Blog</strong>, from the first layout concept to pushing a polished site to GitHub Pages.</p>
+
+<!--more-->
+
+<h2 id="️-designing-the-blog-layout">🖼️ Designing the Blog Layout</h2>
+
+<p>The journey kicked off with a visual mockup. I uploaded a JPEG of the desired layout, and from that came a Tailwind-based dark mode blog layout, built with responsiveness and simplicity in mind. Key elements included:</p>
+
+<ul>
+  <li>Hero header with the blog title</li>
+  <li>Two-column layout with a sidebar</li>
+  <li>Modern card design for posts</li>
+  <li>A comment form built right into the homepage</li>
+</ul>
+
+<h2 id="-integrating-markdown-support">🛠 Integrating Markdown Support</h2>
+
+<p>Next, I needed to feed Markdown posts into this layout. That’s where Jekyll came in.</p>
+
+<p>I learned that:</p>
+<ul>
+  <li>Jekyll supports Markdown out of the box</li>
+  <li>Posts must go in a <code class="language-plaintext highlighter-rouge">_posts/</code> directory and follow the <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-title.md</code> format</li>
+  <li>Front matter is crucial for titles, categories, and excerpt handling</li>
+</ul>
+
+<p>Using <code class="language-plaintext highlighter-rouge">excerpt_separator: &lt;!--more--&gt;</code> let me control where the preview stopped.</p>
+
+<h2 id="-handling-missing-pieces">💡 Handling Missing Pieces</h2>
+
+<p>While the UI came together nicely, a few hiccups happened:</p>
+
+<ul>
+  <li>The comment button was initially the same color as the background — easily fixed by improving contrast and padding.</li>
+  <li>The post list wasn’t fully clickable — resolved by wrapping links properly.</li>
+  <li>The homepage had leftover artifacts from the <code class="language-plaintext highlighter-rouge">minima</code> Jekyll theme — removed by stripping the <code class="language-plaintext highlighter-rouge">theme:</code> config and adding a custom <code class="language-plaintext highlighter-rouge">default.html</code>.</li>
+</ul>
+
+<h2 id="-structuring-the-repo">🧱 Structuring the Repo</h2>
+
+<p>To get things organized and GitHub-ready:</p>
+
+<ul>
+  <li>I created the necessary folders (<code class="language-plaintext highlighter-rouge">_posts</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>, <code class="language-plaintext highlighter-rouge">assets/images</code>)</li>
+  <li>Used Tailwind via CDN for quick deployment</li>
+  <li>Made <code class="language-plaintext highlighter-rouge">_config.yml</code> clean, adding <code class="language-plaintext highlighter-rouge">baseurl</code> and removing unnecessary themes</li>
+</ul>
+
+<p>I learned that GitHub Pages supports Jekyll out of the box, but I had to be careful about base URLs (<code class="language-plaintext highlighter-rouge">/codys-dev-blog</code> vs <code class="language-plaintext highlighter-rouge">/</code>).</p>
+
+<h2 id="️-seo-and-metadata">🗺️ SEO and Metadata</h2>
+
+<p>To make things searchable and shareable:</p>
+
+<ul>
+  <li>I added Open Graph metadata and Twitter cards</li>
+  <li>Enabled the <code class="language-plaintext highlighter-rouge">jekyll-sitemap</code> plugin to generate a working <code class="language-plaintext highlighter-rouge">sitemap.xml</code></li>
+  <li>Considered adding a <code class="language-plaintext highlighter-rouge">robots.txt</code> file (which is next up)</li>
+</ul>
+
+<h2 id="-comments-giscus-vs-staticman">💬 Comments? Giscus vs Staticman</h2>
+
+<p>I explored two options:</p>
+
+<ul>
+  <li><strong>Giscus</strong> — GitHub Discussions powered comment system (easy setup, zero backend)</li>
+  <li><strong>Staticman</strong> — static-site compatible backend with GitHub PR-based comment submissions (but requires Netlify or your own webhook)</li>
+</ul>
+
+<p>Ultimately, I’m leaning toward Giscus because of its simplicity.</p>
+
+<h2 id="-tags-and-filtering">🏷 Tags and Filtering</h2>
+
+<p>I added <code class="language-plaintext highlighter-rouge">tags:</code> to post front matter, built a <code class="language-plaintext highlighter-rouge">tag.html</code> layout, and created per-tag Markdown files. This allows for simple URL-based filtering without JavaScript.</p>
+
+<p>A future enhancement would be a plugin or script to auto-generate tag index pages.</p>
+
+<h2 id="-polishing-the-blog">🚀 Polishing the Blog</h2>
+
+<p>Final cleanup included:</p>
+
+<ul>
+  <li>A professional <code class="language-plaintext highlighter-rouge">README.md</code> with usage, screenshot, and instructions</li>
+  <li>Cleaned up <code class="language-plaintext highlighter-rouge">default.html</code> (no theme artifacts)</li>
+  <li>Added a navbar and footer with GitHub links</li>
+  <li>Fixed spacing between comment sections and footer</li>
+  <li>Packaged everything into a downloadable ZIP for version control</li>
+</ul>
+
+<h2 id="-final-thoughts">✅ Final Thoughts</h2>
+
+<p>If you’re building a personal blog:</p>
+
+<ul>
+  <li>Don’t default to a heavy theme — custom layouts are more flexible</li>
+  <li>Use Tailwind for quick design wins (especially via CDN)</li>
+  <li>Jekyll is super GitHub-friendly, but mind your folder structure</li>
+  <li>SEO and clean metadata go a long way</li>
+</ul>
+
+<p>This project was more than just “set up a blog.” It was a deep dive into clean static site architecture and modern UI decisions — and I’m glad I went through it.</p>
+
+<p>You can check out the blog here: <a href="https://codyliska.github.io/codys-dev-blog">https://codyliska.github.io/codys-dev-blog</a></p>
+
+</main>
+
+  <footer class="mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/50 py-6">
+    © <span id="year"></span> Cody's Dev Blog — All rights reserved.<br>
+    <a href="https://github.com/CodyLiska/codys-dev-blog" class="text-sky-400 hover:underline">GitHub</a>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

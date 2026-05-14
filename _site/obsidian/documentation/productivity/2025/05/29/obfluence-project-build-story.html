@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obfluence: A Developer's Confluence Replacement in Obsidian</title>
+  <meta name="description" content="What if Confluence had local-first markdown, full control, and an actual soul? Like many developers, I’ve wrestled with documentation platforms and eventuall...">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <style>
+    .glass { border: 1px solid rgb(255 255 255 / 0.2); backdrop-filter: blur(4px); }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-900 text-slate-200 antialiased">
+  <nav class="text-center py-4 border-b border-white/10">
+    <a href="/codys-dev-blog/" class="text-2xl font-semibold hover:text-sky-400">Home</a>
+  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-10 prose prose-invert">
+  <h1>Obfluence: A Developer's Confluence Replacement in Obsidian</h1>
+  <p class="text-sm text-white/50">May 29, 2025</p>
+  
+  <p>What if Confluence had local-first markdown, full control, and an actual soul? Like many developers, I’ve wrestled with documentation platforms and eventually built my own solution using Obsidian.</p>
+
+<!--more-->
+
+<h1 id="-obfluence-a-developers-confluence-replacement-in-obsidian">🧠 Obfluence: A Developer’s Confluence Replacement in Obsidian</h1>
+
+<blockquote>
+  <p>“What if Confluence had local-first markdown, full control, and an actual soul?”</p>
+</blockquote>
+
+<p>Like many developers, I’ve wrestled with documentation. Not the writing — the platforms.</p>
+
+<p>We’ve all been there: a slow-loading Confluence page, a broken editor, the vague dread of Atlassian outages. Eventually, I hit my limit. I needed something faster, local, markdown-native — but still structured and powerful.</p>
+
+<p>That’s how <em>Obfluence</em> started.</p>
+
+<hr />
+
+<h2 id="️-the-goal">🛠️ The Goal</h2>
+
+<p>I didn’t want another wiki — I wanted something modular, offline, version-controlled, and developer-centric.</p>
+
+<p>So I mapped out what makes Confluence useful, and what makes it painful. The folder structure was good. The page types were clear. But the performance, UX, and editing? Not so much.</p>
+
+<hr />
+
+<h2 id="-the-build">🧩 The Build</h2>
+
+<p>I began by mirroring a logical structure:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">00_Product</code> — specs, backlog, roadmap</li>
+  <li><code class="language-plaintext highlighter-rouge">01_Architecture</code> — diagrams, decisions</li>
+  <li><code class="language-plaintext highlighter-rouge">02_Release Notes</code> — changelogs</li>
+  <li><code class="language-plaintext highlighter-rouge">03_Operations</code> — CI/CD, infra, monitoring</li>
+  <li><code class="language-plaintext highlighter-rouge">04_Working Session Minutes</code></li>
+  <li><code class="language-plaintext highlighter-rouge">05_Meeting Notes</code></li>
+  <li><code class="language-plaintext highlighter-rouge">06_Scrum Foundations</code></li>
+  <li><code class="language-plaintext highlighter-rouge">07_Knowledge Base</code></li>
+  <li><code class="language-plaintext highlighter-rouge">08_Open Business Question Log</code></li>
+</ul>
+
+<p>Each folder uses a dynamic <code class="language-plaintext highlighter-rouge">_index.md</code> to render contents.</p>
+
+<hr />
+
+<h2 id="-essential-plugins">🔌 Essential Plugins</h2>
+
+<h3 id="-templater">✅ Templater</h3>
+<ul>
+  <li>Automates note creation</li>
+  <li>Smart prompts and reusable scaffolds</li>
+</ul>
+
+<h3 id="-dataview">📊 Dataview</h3>
+<ul>
+  <li>Generates dynamic dashboards and indexes</li>
+</ul>
+
+<h3 id="-metaedit">🧩 MetaEdit</h3>
+<ul>
+  <li>Inline frontmatter control (status, owner, tags)</li>
+</ul>
+
+<h3 id="-bonus">➕ Bonus</h3>
+<ul>
+  <li>QuickAdd, Advanced Tables, Buttons, Folder Notes</li>
+</ul>
+
+<p>More details in: <code class="language-plaintext highlighter-rouge">Obfluence_Suggested_Plugins.md</code></p>
+
+<hr />
+
+<h2 id="-lessons-learned">💡 Lessons Learned</h2>
+
+<ul>
+  <li>Metadata consistency makes everything easier</li>
+  <li>Recursion with Dataview can be powerful — and tricky</li>
+  <li>A consistent template style saves hours</li>
+  <li>Structure improves memory and reuse</li>
+</ul>
+
+<hr />
+
+<h2 id="-qa">💬 Q&amp;A</h2>
+
+<p><strong>Q: Can teams use this?</strong><br />
+Yes — with Obsidian Sync or Git. It’s team-friendly, local-first, and Git-friendly.</p>
+
+<p><strong>Q: What makes Obfluence different?</strong><br />
+It mimics Confluence’s power using only markdown, folders, and smart plugins — with no lock-in or cloud reliance.</p>
+
+<p><strong>Q: Can I use this for meeting notes or guides?</strong><br />
+Yes. Templates support everything from retros to runbooks to system diagrams.</p>
+
+<hr />
+
+<h2 id="-technical-appendix">🧠 Technical Appendix</h2>
+
+<ul>
+  <li><strong>Dynamic Indexes</strong>: Auto-rendered <code class="language-plaintext highlighter-rouge">_index.md</code> files</li>
+  <li><strong>Templates</strong>: Over 30 templater-powered files</li>
+  <li><strong>Dashboards</strong>: Custom views of metadata across your system</li>
+  <li><strong>Frontmatter</strong>:
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">template</span><span class="pi">]</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">draft</span>
+<span class="na">system</span><span class="pi">:</span> <span class="s">architecture</span>
+<span class="na">owner</span><span class="pi">:</span> <span class="s2">"</span><span class="s">@you"</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-try-obfluence">🔗 Try Obfluence</h2>
+
+<ul>
+  <li>GitHub: <code class="language-plaintext highlighter-rouge">https://github.com/yourusername/obfluence</code></li>
+  <li>License: MIT</li>
+  <li>Included: README, Dashboard, Suggested Plugins, and more</li>
+</ul>
+
+</main>
+
+  <footer class="mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/50 py-6">
+    © <span id="year"></span> Cody's Dev Blog — All rights reserved.<br>
+    <a href="https://github.com/CodyLiska/codys-dev-blog" class="text-sky-400 hover:underline">GitHub</a>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

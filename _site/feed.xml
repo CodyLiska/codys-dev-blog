@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://codyliska.github.io/codys-dev-blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codyliska.github.io/codys-dev-blog/" rel="alternate" type="text/html" /><updated>2026-05-13T18:15:51-07:00</updated><id>https://codyliska.github.io/codys-dev-blog/feed.xml</id><title type="html">Cody’s Dev Blog</title><subtitle>Personal dev blog sharing lessons from projects and experiments.</subtitle><entry><title type="html">Falling Down the Dotfiles + Devcontainer Rabbit Hole</title><link href="https://codyliska.github.io/codys-dev-blog/2025/09/30/dotfiles-devcontainer.html" rel="alternate" type="text/html" title="Falling Down the Dotfiles + Devcontainer Rabbit Hole" /><published>2025-09-30T00:00:00-07:00</published><updated>2025-09-30T00:00:00-07:00</updated><id>https://codyliska.github.io/codys-dev-blog/2025/09/30/dotfiles-devcontainer</id><content type="html" xml:base="https://codyliska.github.io/codys-dev-blog/2025/09/30/dotfiles-devcontainer.html"><![CDATA[<p>I didn’t plan on spending my evening building a complete cross-platform dev environment — but here we are.</p>
+
+<!--more-->
+
+<p>It started with a simple frustration: switching between <strong>macOS</strong> and <strong>Windows (via WSL)</strong> for development. Both work fine individually, but the little differences — path quirks, shell defaults, git configs, VS Code behaving slightly differently — were creating a steady drip of friction. Every switch meant more mental overhead.</p>
+
+<h2 id="first-attempts">First Attempts</h2>
+
+<p>My first thought was: <em>“Can I just standardize around WSL on Windows?”</em> That got me halfway there — a Linux environment on Windows smooths over some platform-specific rough edges. But I still had macOS in the mix, and I didn’t want to keep remembering what worked where.</p>
+
+<p>I wanted <strong>one setup, one mental model</strong>.</p>
+
+<p>That’s when the rabbit hole really opened.</p>
+
+<h2 id="the-solution-dotfiles--devcontainers">The Solution: Dotfiles + Devcontainers</h2>
+
+<p>The answer turned out to be a combination of two tools:</p>
+
+<ul>
+  <li><strong>Dotfiles repo</strong> → central home for <code class="language-plaintext highlighter-rouge">.zshrc</code>, <code class="language-plaintext highlighter-rouge">.bashrc</code>, <code class="language-plaintext highlighter-rouge">.gitconfig</code>, aliases, Starship prompt config, etc.</li>
+  <li><strong>Devcontainers</strong> → reproducible development environments defined in <code class="language-plaintext highlighter-rouge">devcontainer.json</code>, fully supported by VS Code.</li>
+</ul>
+
+<p>By combining these, I now have:</p>
+
+<ul>
+  <li><strong>Consistent shells</strong> on both platforms (zsh on macOS, bash/zsh in WSL).</li>
+  <li><strong>Shared git config &amp; aliases</strong> so I don’t forget shortcuts.</li>
+  <li><strong>Starship prompt</strong> for consistency and style (with optional Powerlevel10k if I want to go fancier).</li>
+  <li><strong>Bootstrap script</strong> to set up Homebrew (macOS) or apt (WSL), Starship, NVM, Python, etc.</li>
+  <li><strong>Setup script</strong> to symlink dotfiles in place.</li>
+</ul>
+
+<p>And the cherry on top: a <strong>VS Code devcontainer</strong> that automatically applies the same environment (Python 3.11 + Node.js 20) with synced settings and recommended extensions.</p>
+
+<h2 id="repo-structure">Repo Structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dotfiles-devcontainer/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── FIRST_RUN.md
+├── dotfiles/
+│   ├── .aliases
+│   ├── .zshrc
+│   ├── .bashrc
+│   ├── .gitconfig
+│   ├── bootstrap.sh
+│   ├── setup.sh
+│   └── .config/starship.toml
+├── .devcontainer/
+│   └── devcontainer.json
+└── .vscode/
+    ├── settings.json
+    └── extensions.json
+</code></pre></div></div>
+
+<h2 id="first-run">First Run</h2>
+
+<p>To bootstrap a new machine:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotfiles/bootstrap.sh
+./dotfiles/setup.sh
+</code></pre></div></div>
+
+<p>Then open the repo in VS Code — it applies the settings, suggests extensions, and asks if I want to reopen in the devcontainer. From there, I’m coding with <strong>the same environment everywhere</strong>.</p>
+
+<h2 id="reflections">Reflections</h2>
+
+<p>What started as “I just want fewer workarounds between macOS and Windows” turned into a polished setup:</p>
+
+<ul>
+  <li>Dotfiles that are clean, modular, and portable.</li>
+  <li>Devcontainers that lock in my stack.</li>
+  <li>A README + First Run guide so future-me doesn’t forget the steps.</li>
+</ul>
+
+<p>This evening’s rabbit hole paid off. Next time I spin up a new machine, it won’t take me hours to remember how to configure things. It’ll be one <code class="language-plaintext highlighter-rouge">git clone</code> and a couple shell scripts.</p>
+
+<p>And honestly? That feels like a win.</p>]]></content><author><name></name></author><category term="dotfiles" /><category term="devcontainers" /><category term="vscode" /><category term="macos" /><category term="wsl" /><summary type="html"><![CDATA[I didn’t plan on spending my evening building a complete cross-platform dev environment — but here we are.]]></summary></entry><entry><title type="html">Building a Personal Malware Analysis Lab on a Ten Year Old HP Laptop</title><link href="https://codyliska.github.io/codys-dev-blog/malware/project/learning/lab/2025/07/19/malware-lab-project.html" rel="alternate" type="text/html" title="Building a Personal Malware Analysis Lab on a Ten Year Old HP Laptop" /><published>2025-07-19T22:05:00-07:00</published><updated>2025-07-19T22:05:00-07:00</updated><id>https://codyliska.github.io/codys-dev-blog/malware/project/learning/lab/2025/07/19/malware-lab-project</id><content type="html" xml:base="https://codyliska.github.io/codys-dev-blog/malware/project/learning/lab/2025/07/19/malware-lab-project.html"><![CDATA[<p>The goal was to turn this aging machine into an isolated playground for reverse engineering malware</p>
+
+<!--more-->
+
+<h1 id="breathing-new-life-into-a-10-year-old-laptop-my-malware-lab-journey">Breathing New Life into a 10-Year-Old Laptop: My Malware Lab Journey</h1>
+
+<p>I’ve always liked squeezing extra life out of old hardware. So when I decided I wanted a personal malware analysis playground, I didn’t run out and buy a new workstation—I pulled a dusty 2011 HP Pavilion dv6 off the shelf. It’s got an Intel i5 2410M (dual core, 2.3 GHz), 16 GB of DDR3 RAM, Intel HD 3000 graphics, and a 1 TB SATA SSD. On paper, not exactly cutting-edge. But my challenge was simple: could I turn this decade-old laptop into a proper malware analysis lab?</p>
+
+<p>Spoiler: yes. But the road was a bumpy one.</p>
+
+<hr />
+
+<h2 id="installing-the-host">Installing the Host</h2>
+
+<p>My first step was to install Linux. Easy, right? Wrong. I burned the ISO with Balena Etcher and—boom—frozen at GRUB every time. After a lot of head-scratching, I re-flashed the stick in <strong>DD mode</strong>, and suddenly it worked. I went with <strong>Linux Mint 21.3 XFCE</strong> since it’s lighter than Xubuntu, and this machine needed all the help it could get.</p>
+
+<p>Of course, Wi-Fi wasn’t cooperative. The Intel Centrino N1000 card crawled. The driver (<code class="language-plaintext highlighter-rouge">iwlwifi</code>) was already in the kernel, but disabling 802.11n finally cut down the latency. Score one for persistence.</p>
+
+<hr />
+
+<h2 id="wrestling-with-kvm">Wrestling with KVM</h2>
+
+<p>Next up: virtualization. I installed <code class="language-plaintext highlighter-rouge">qemu-kvm</code>, <code class="language-plaintext highlighter-rouge">libvirt</code>, and <code class="language-plaintext highlighter-rouge">virt-manager</code>. Naturally, my first attempt blew up—<code class="language-plaintext highlighter-rouge">/dev/kvm</code> didn’t exist. Turns out virtualization was disabled in the BIOS. After flipping on VT-x in firmware, it finally worked.</p>
+
+<p>I added my user to the <strong>libvirt</strong> and <strong>kvm</strong> groups and felt like I was finally making progress.</p>
+
+<hr />
+
+<h2 id="windows-10-guest-death-by-drivers">Windows 10 Guest: Death by Drivers</h2>
+
+<p>Spinning up a Windows 10 VM sounded straightforward. I set up the VM in virt-manager with Virtio-SCSI for the disk and OVMF firmware. Then the installer mocked me: “Setup can’t see a disk.”</p>
+
+<p>The fix? Loading the Virtio driver manually from <code class="language-plaintext highlighter-rouge">iostor.inf</code>. After that, things clicked into place. Once Windows booted, I immediately installed the virtio guest agent, qxl display driver, Sysinternals Suite, and Wireshark. Then I froze everything in time with a <strong>clean base snapshot</strong>—the golden reset button every malware lab needs.</p>
+
+<hr />
+
+<h2 id="snapshot-hell">Snapshot Hell</h2>
+
+<p>If you’ve ever messed with snapshots under OVMF, you know what’s coming. Internal snapshots? Nope—unsupported. External only. And deleting them through the GUI? Forget it. I had to manage everything through the CLI, juggling <code class="language-plaintext highlighter-rouge">virsh snapshot-delete</code>, <code class="language-plaintext highlighter-rouge">rm overlay.qcow2</code>, and <code class="language-plaintext highlighter-rouge">virsh blockcommit</code>.</p>
+
+<p>Permissions also loved to break, with overlays showing up as <code class="language-plaintext highlighter-rouge">root:root 600</code>. I hacked together a quick script to fix ownership and permissions. Ugly, but it worked.</p>
+
+<hr />
+
+<h2 id="remnux-when-an-ova-wont-ova">REMnux: When an OVA Won’t OVA</h2>
+
+<p>No malware lab is complete without a Linux analysis VM, so I tried importing the official <code class="language-plaintext highlighter-rouge">remnux-v7-focal.ova</code>. That blew up immediately: “No bootable device.”</p>
+
+<p>I ended up unpacking the OVA, converting the VMDK to qcow2, and discovering it only wanted to boot with <strong>BIOS + SATA</strong>. UEFI dropped me into a shell. Even when it did boot, the display was black. No display manager. Installing XFCE, LightDM, and a fallback VESA driver finally gave me a desktop. Then I made another clean snapshot, because by that point I didn’t trust anything.</p>
+
+<hr />
+
+<h2 id="networking-nightmares">Networking Nightmares</h2>
+
+<p>Getting the VMs to talk to each other was… messy. I set up two NICs—NAT for internet and an isolated <code class="language-plaintext highlighter-rouge">lab-int</code> network for malware traffic. Immediately, duplicate MACs killed DHCP. I had to regenerate new ones.</p>
+
+<p>Then <code class="language-plaintext highlighter-rouge">lab-int</code> tried to hijack my default route. The fix was adding <code class="language-plaintext highlighter-rouge">ipv4.never-default yes</code> in Netplan. Static IPs on the isolated network finished the job.</p>
+
+<hr />
+
+<h2 id="lessons-learned">Lessons Learned</h2>
+
+<p>This little project reminded me just how stubborn old hardware (and software defaults) can be. Some big takeaways:</p>
+
+<ul>
+  <li>With OVMF VMs, stick to <strong>external snapshots only</strong> and script permission fixes.</li>
+  <li>Vendor OVAs usually prefer <strong>BIOS + SATA</strong>—don’t fight it.</li>
+  <li>REMnux needs a display manager if you want a GUI.</li>
+  <li>And never, ever trust virt-manager’s defaults.</li>
+</ul>
+
+<p>In the end, my ten-year-old i5 laptop is now running a fully functional malware analysis lab: Windows and Linux VMs, reversible snapshots, isolated networking. It’s not the fastest machine in the world, but it gets the job done.</p>
+
+<p>And honestly? There’s something satisfying about bending old hardware to your will and proving it’s still got life left in it.</p>]]></content><author><name></name></author><category term="malware" /><category term="project" /><category term="learning" /><category term="lab" /><summary type="html"><![CDATA[The goal was to turn this aging machine into an isolated playground for reverse engineering malware]]></summary></entry><entry><title type="html">Obfluence: A Developer’s Confluence Replacement in Obsidian</title><link href="https://codyliska.github.io/codys-dev-blog/obsidian/documentation/productivity/2025/05/29/obfluence-project-build-story.html" rel="alternate" type="text/html" title="Obfluence: A Developer’s Confluence Replacement in Obsidian" /><published>2025-05-29T10:00:00-07:00</published><updated>2025-05-29T10:00:00-07:00</updated><id>https://codyliska.github.io/codys-dev-blog/obsidian/documentation/productivity/2025/05/29/obfluence-project-build-story</id><content type="html" xml:base="https://codyliska.github.io/codys-dev-blog/obsidian/documentation/productivity/2025/05/29/obfluence-project-build-story.html"><![CDATA[<p>What if Confluence had local-first markdown, full control, and an actual soul? Like many developers, I’ve wrestled with documentation platforms and eventually built my own solution using Obsidian.</p>
+
+<!--more-->
+
+<h1 id="-obfluence-a-developers-confluence-replacement-in-obsidian">🧠 Obfluence: A Developer’s Confluence Replacement in Obsidian</h1>
+
+<blockquote>
+  <p>“What if Confluence had local-first markdown, full control, and an actual soul?”</p>
+</blockquote>
+
+<p>Like many developers, I’ve wrestled with documentation. Not the writing — the platforms.</p>
+
+<p>We’ve all been there: a slow-loading Confluence page, a broken editor, the vague dread of Atlassian outages. Eventually, I hit my limit. I needed something faster, local, markdown-native — but still structured and powerful.</p>
+
+<p>That’s how <em>Obfluence</em> started.</p>
+
+<hr />
+
+<h2 id="️-the-goal">🛠️ The Goal</h2>
+
+<p>I didn’t want another wiki — I wanted something modular, offline, version-controlled, and developer-centric.</p>
+
+<p>So I mapped out what makes Confluence useful, and what makes it painful. The folder structure was good. The page types were clear. But the performance, UX, and editing? Not so much.</p>
+
+<hr />
+
+<h2 id="-the-build">🧩 The Build</h2>
+
+<p>I began by mirroring a logical structure:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">00_Product</code> — specs, backlog, roadmap</li>
+  <li><code class="language-plaintext highlighter-rouge">01_Architecture</code> — diagrams, decisions</li>
+  <li><code class="language-plaintext highlighter-rouge">02_Release Notes</code> — changelogs</li>
+  <li><code class="language-plaintext highlighter-rouge">03_Operations</code> — CI/CD, infra, monitoring</li>
+  <li><code class="language-plaintext highlighter-rouge">04_Working Session Minutes</code></li>
+  <li><code class="language-plaintext highlighter-rouge">05_Meeting Notes</code></li>
+  <li><code class="language-plaintext highlighter-rouge">06_Scrum Foundations</code></li>
+  <li><code class="language-plaintext highlighter-rouge">07_Knowledge Base</code></li>
+  <li><code class="language-plaintext highlighter-rouge">08_Open Business Question Log</code></li>
+</ul>
+
+<p>Each folder uses a dynamic <code class="language-plaintext highlighter-rouge">_index.md</code> to render contents.</p>
+
+<hr />
+
+<h2 id="-essential-plugins">🔌 Essential Plugins</h2>
+
+<h3 id="-templater">✅ Templater</h3>
+<ul>
+  <li>Automates note creation</li>
+  <li>Smart prompts and reusable scaffolds</li>
+</ul>
+
+<h3 id="-dataview">📊 Dataview</h3>
+<ul>
+  <li>Generates dynamic dashboards and indexes</li>
+</ul>
+
+<h3 id="-metaedit">🧩 MetaEdit</h3>
+<ul>
+  <li>Inline frontmatter control (status, owner, tags)</li>
+</ul>
+
+<h3 id="-bonus">➕ Bonus</h3>
+<ul>
+  <li>QuickAdd, Advanced Tables, Buttons, Folder Notes</li>
+</ul>
+
+<p>More details in: <code class="language-plaintext highlighter-rouge">Obfluence_Suggested_Plugins.md</code></p>
+
+<hr />
+
+<h2 id="-lessons-learned">💡 Lessons Learned</h2>
+
+<ul>
+  <li>Metadata consistency makes everything easier</li>
+  <li>Recursion with Dataview can be powerful — and tricky</li>
+  <li>A consistent template style saves hours</li>
+  <li>Structure improves memory and reuse</li>
+</ul>
+
+<hr />
+
+<h2 id="-qa">💬 Q&amp;A</h2>
+
+<p><strong>Q: Can teams use this?</strong><br />
+Yes — with Obsidian Sync or Git. It’s team-friendly, local-first, and Git-friendly.</p>
+
+<p><strong>Q: What makes Obfluence different?</strong><br />
+It mimics Confluence’s power using only markdown, folders, and smart plugins — with no lock-in or cloud reliance.</p>
+
+<p><strong>Q: Can I use this for meeting notes or guides?</strong><br />
+Yes. Templates support everything from retros to runbooks to system diagrams.</p>
+
+<hr />
+
+<h2 id="-technical-appendix">🧠 Technical Appendix</h2>
+
+<ul>
+  <li><strong>Dynamic Indexes</strong>: Auto-rendered <code class="language-plaintext highlighter-rouge">_index.md</code> files</li>
+  <li><strong>Templates</strong>: Over 30 templater-powered files</li>
+  <li><strong>Dashboards</strong>: Custom views of metadata across your system</li>
+  <li><strong>Frontmatter</strong>:
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">template</span><span class="pi">]</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">draft</span>
+<span class="na">system</span><span class="pi">:</span> <span class="s">architecture</span>
+<span class="na">owner</span><span class="pi">:</span> <span class="s2">"</span><span class="s">@you"</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-try-obfluence">🔗 Try Obfluence</h2>
+
+<ul>
+  <li>GitHub: <code class="language-plaintext highlighter-rouge">https://github.com/yourusername/obfluence</code></li>
+  <li>License: MIT</li>
+  <li>Included: README, Dashboard, Suggested Plugins, and more</li>
+</ul>]]></content><author><name></name></author><category term="obsidian" /><category term="documentation" /><category term="productivity" /><summary type="html"><![CDATA[What if Confluence had local-first markdown, full control, and an actual soul? Like many developers, I’ve wrestled with documentation platforms and eventually built my own solution using Obsidian.]]></summary></entry><entry><title type="html">Building the Synergy FC Team Tracker: My Journey from Idea to App</title><link href="https://codyliska.github.io/codys-dev-blog/react/web-dev/deployment/2024/07/02/synergy-fc-team-tracker-project-journey.html" rel="alternate" type="text/html" title="Building the Synergy FC Team Tracker: My Journey from Idea to App" /><published>2024-07-02T10:00:00-07:00</published><updated>2024-07-02T10:00:00-07:00</updated><id>https://codyliska.github.io/codys-dev-blog/react/web-dev/deployment/2024/07/02/synergy-fc-team-tracker-project-journey</id><content type="html" xml:base="https://codyliska.github.io/codys-dev-blog/react/web-dev/deployment/2024/07/02/synergy-fc-team-tracker-project-journey.html"><![CDATA[<p>I wanted to give our coachesa better way to track player development. Google Sheets had gotten us pretty far, but once multiple coaches, skills, and weekly ratings entered the picture, it started to feel like juggling flaming soccer balls.</p>
+
+<!--more-->
+
+<h1 id="building-the-synergy-fc-team-tracker-my-journey-from-idea-to-app">Building the Synergy FC Team Tracker: My Journey from Idea to App</h1>
+
+<p>When I first set out to build the <strong>Synergy FC Team Tracker</strong>, I had one
+simple goal: give our coaches (myself included) a better way to track
+player development. Google Sheets had gotten us pretty far, but once
+multiple coaches, skills, and weekly ratings entered the picture, it
+started to feel like juggling flaming soccer balls. It was time for a
+real app.</p>
+
+<h3 id="step-1-the-big-idea">Step 1: The Big Idea</h3>
+
+<p>The vision was clear:\</p>
+<ul>
+  <li>A web app where each coach could log in\</li>
+  <li>Players tied to the right coach\</li>
+  <li>Ratings broken down into categories like <em>psychological, physical,
+social-emotional, and technical</em>\</li>
+  <li>Charts and dashboards to make sense of the data</li>
+</ul>
+
+<p>I decided on a <strong>Vue 3 frontend</strong> and a <strong>Node.js/MongoDB backend</strong> —
+mostly because that stack felt light, flexible, and something I could
+iterate on fast in my home lab.</p>
+
+<h3 id="step-2-early-wins-and-growing-pains">Step 2: Early Wins and Growing Pains</h3>
+
+<p>At first, things moved quickly. I set up player creation forms, coach
+dashboards, and even pulled in team stats. But then the “little” details
+hit me hard:</p>
+
+<ul>
+  <li><strong>CORS errors</strong> after I renamed <code class="language-plaintext highlighter-rouge">/backend</code> to <code class="language-plaintext highlighter-rouge">/api</code> (rookie move,
+but a good reminder of how tightly frontend and backend need to stay
+in sync).\</li>
+  <li>Struggles with <strong>form state</strong>, like resetting checkboxes or clearing
+update forms after saving. Small things, but they matter a lot for
+usability.\</li>
+  <li><strong>Pagination</strong> on eligibility calls. I had never tackled pagination
+in C# services before, so it was a steep but worthwhile climb.</li>
+</ul>
+
+<h3 id="step-3-multi-coach-madness">Step 3: Multi-Coach Madness</h3>
+
+<p>The biggest challenge? <strong>Multi-coach access.</strong></p>
+
+<p>At first, I tied access control to player IDs through a <code class="language-plaintext highlighter-rouge">TEAM_MAP</code>. It
+worked, but it was clunky. Then I shifted to using <strong>roles and email
+addresses</strong> as the main drivers. That was a game-changer:\</p>
+<ul>
+  <li>Admins and head coaches could see all players.\</li>
+  <li>Assistant coaches only saw their own.\</li>
+  <li>We added JWT handling, refresh tokens, and HTTP-only cookies for
+secure sessions.</li>
+</ul>
+
+<p>This was the first time I built <strong>role-based access control</strong> from
+scratch, and while I pulled out a few hairs, it was one of those moments
+where you realize: <em>oh, this is how real systems handle access.</em></p>
+
+<h3 id="step-4-dashboards--data">Step 4: Dashboards &amp; Data</h3>
+
+<p>Once authentication was stable, I focused on making the coach dashboards
+<strong>actually useful</strong>. That meant:\</p>
+<ul>
+  <li>Team skill averages, editable when needed.\</li>
+  <li>Charts that updated dynamically when player data changed.\</li>
+  <li>Grouping traits by category on a single page (instead of scattering
+them across multiple).</li>
+</ul>
+
+<p>I even got nerdy with <strong>timestamp formatting issues</strong> and normalization
+in spreadsheets before moving that logic fully into the app. Every bug
+taught me a little more about <strong>data consistency</strong>.</p>
+
+<h3 id="step-5-lessons-learned">Step 5: Lessons Learned</h3>
+
+<p>Looking back, a few lessons stand out:</p>
+
+<ul>
+  <li><strong>Don’t underestimate “small” UX details.</strong> Resetting a checkbox or
+keeping timestamps consistent sounds minor, but it can make or break
+the experience.\</li>
+  <li><strong>Role-based access is worth doing right.</strong> Switching from hardcoded
+ID maps to a role-based system was tough, but it unlocked real
+scalability.\</li>
+  <li><strong>Iteration beats perfection.</strong> I didn’t get everything right the
+first time (or the second), but each pass made the app better.\</li>
+  <li><strong>Have fun with it.</strong> Yes, there were moments I wanted to punt my
+laptop like a soccer ball, but seeing data flow across dashboards
+made it all worth it.</li>
+</ul>
+
+<h3 id="step-6-whats-next">Step 6: What’s Next?</h3>
+
+<p>The Team Tracker is already miles ahead of where we started. Coaches can
+log in, see their players, and get meaningful insights in seconds. But
+the roadmap is still wide open — maybe mobile support, deeper
+analytics, or even AI-powered insights on player development (a coach
+can dream, right?).</p>
+
+<hr />
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>Building the Synergy FC Team Tracker has been equal parts <strong>software
+engineering bootcamp</strong> and <strong>soccer coaching hackathon</strong>. I learned new
+tricks in Vue, Node, and MongoDB; fought my way through auth flows; and
+came out the other side with an app that actually helps my team.</p>
+
+<p>It wasn’t always smooth, but then again, neither is soccer. Sometimes
+you trip, sometimes you score, but the key is to keep playing. And for
+me, this project has been one of the most rewarding games yet.</p>]]></content><author><name></name></author><category term="react" /><category term="web-dev" /><category term="deployment" /><summary type="html"><![CDATA[I wanted to give our coachesa better way to track player development. Google Sheets had gotten us pretty far, but once multiple coaches, skills, and weekly ratings entered the picture, it started to feel like juggling flaming soccer balls.]]></summary></entry><entry><title type="html">Building Cody’s Dev Blog: A Journey from Design to Deployment</title><link href="https://codyliska.github.io/codys-dev-blog/jekyll/web-dev/github-pages/2024/06/18/dev-blog-journey.html" rel="alternate" type="text/html" title="Building Cody’s Dev Blog: A Journey from Design to Deployment" /><published>2024-06-18T10:00:00-07:00</published><updated>2024-06-18T10:00:00-07:00</updated><id>https://codyliska.github.io/codys-dev-blog/jekyll/web-dev/github-pages/2024/06/18/dev-blog-journey</id><content type="html" xml:base="https://codyliska.github.io/codys-dev-blog/jekyll/web-dev/github-pages/2024/06/18/dev-blog-journey.html"><![CDATA[<p>What started as a simple idea — “I want a clean blog to post my dev writeups” — turned into a detailed walkthrough of static site building, templating, versioning, and deployment. This post outlines the entire process I went through to build <strong>Cody’s Dev Blog</strong>, from the first layout concept to pushing a polished site to GitHub Pages.</p>
+
+<!--more-->
+
+<h2 id="️-designing-the-blog-layout">🖼️ Designing the Blog Layout</h2>
+
+<p>The journey kicked off with a visual mockup. I uploaded a JPEG of the desired layout, and from that came a Tailwind-based dark mode blog layout, built with responsiveness and simplicity in mind. Key elements included:</p>
+
+<ul>
+  <li>Hero header with the blog title</li>
+  <li>Two-column layout with a sidebar</li>
+  <li>Modern card design for posts</li>
+  <li>A comment form built right into the homepage</li>
+</ul>
+
+<h2 id="-integrating-markdown-support">🛠 Integrating Markdown Support</h2>
+
+<p>Next, I needed to feed Markdown posts into this layout. That’s where Jekyll came in.</p>
+
+<p>I learned that:</p>
+<ul>
+  <li>Jekyll supports Markdown out of the box</li>
+  <li>Posts must go in a <code class="language-plaintext highlighter-rouge">_posts/</code> directory and follow the <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-title.md</code> format</li>
+  <li>Front matter is crucial for titles, categories, and excerpt handling</li>
+</ul>
+
+<p>Using <code class="language-plaintext highlighter-rouge">excerpt_separator: &lt;!--more--&gt;</code> let me control where the preview stopped.</p>
+
+<h2 id="-handling-missing-pieces">💡 Handling Missing Pieces</h2>
+
+<p>While the UI came together nicely, a few hiccups happened:</p>
+
+<ul>
+  <li>The comment button was initially the same color as the background — easily fixed by improving contrast and padding.</li>
+  <li>The post list wasn’t fully clickable — resolved by wrapping links properly.</li>
+  <li>The homepage had leftover artifacts from the <code class="language-plaintext highlighter-rouge">minima</code> Jekyll theme — removed by stripping the <code class="language-plaintext highlighter-rouge">theme:</code> config and adding a custom <code class="language-plaintext highlighter-rouge">default.html</code>.</li>
+</ul>
+
+<h2 id="-structuring-the-repo">🧱 Structuring the Repo</h2>
+
+<p>To get things organized and GitHub-ready:</p>
+
+<ul>
+  <li>I created the necessary folders (<code class="language-plaintext highlighter-rouge">_posts</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code>, <code class="language-plaintext highlighter-rouge">assets/images</code>)</li>
+  <li>Used Tailwind via CDN for quick deployment</li>
+  <li>Made <code class="language-plaintext highlighter-rouge">_config.yml</code> clean, adding <code class="language-plaintext highlighter-rouge">baseurl</code> and removing unnecessary themes</li>
+</ul>
+
+<p>I learned that GitHub Pages supports Jekyll out of the box, but I had to be careful about base URLs (<code class="language-plaintext highlighter-rouge">/codys-dev-blog</code> vs <code class="language-plaintext highlighter-rouge">/</code>).</p>
+
+<h2 id="️-seo-and-metadata">🗺️ SEO and Metadata</h2>
+
+<p>To make things searchable and shareable:</p>
+
+<ul>
+  <li>I added Open Graph metadata and Twitter cards</li>
+  <li>Enabled the <code class="language-plaintext highlighter-rouge">jekyll-sitemap</code> plugin to generate a working <code class="language-plaintext highlighter-rouge">sitemap.xml</code></li>
+  <li>Considered adding a <code class="language-plaintext highlighter-rouge">robots.txt</code> file (which is next up)</li>
+</ul>
+
+<h2 id="-comments-giscus-vs-staticman">💬 Comments? Giscus vs Staticman</h2>
+
+<p>I explored two options:</p>
+
+<ul>
+  <li><strong>Giscus</strong> — GitHub Discussions powered comment system (easy setup, zero backend)</li>
+  <li><strong>Staticman</strong> — static-site compatible backend with GitHub PR-based comment submissions (but requires Netlify or your own webhook)</li>
+</ul>
+
+<p>Ultimately, I’m leaning toward Giscus because of its simplicity.</p>
+
+<h2 id="-tags-and-filtering">🏷 Tags and Filtering</h2>
+
+<p>I added <code class="language-plaintext highlighter-rouge">tags:</code> to post front matter, built a <code class="language-plaintext highlighter-rouge">tag.html</code> layout, and created per-tag Markdown files. This allows for simple URL-based filtering without JavaScript.</p>
+
+<p>A future enhancement would be a plugin or script to auto-generate tag index pages.</p>
+
+<h2 id="-polishing-the-blog">🚀 Polishing the Blog</h2>
+
+<p>Final cleanup included:</p>
+
+<ul>
+  <li>A professional <code class="language-plaintext highlighter-rouge">README.md</code> with usage, screenshot, and instructions</li>
+  <li>Cleaned up <code class="language-plaintext highlighter-rouge">default.html</code> (no theme artifacts)</li>
+  <li>Added a navbar and footer with GitHub links</li>
+  <li>Fixed spacing between comment sections and footer</li>
+  <li>Packaged everything into a downloadable ZIP for version control</li>
+</ul>
+
+<h2 id="-final-thoughts">✅ Final Thoughts</h2>
+
+<p>If you’re building a personal blog:</p>
+
+<ul>
+  <li>Don’t default to a heavy theme — custom layouts are more flexible</li>
+  <li>Use Tailwind for quick design wins (especially via CDN)</li>
+  <li>Jekyll is super GitHub-friendly, but mind your folder structure</li>
+  <li>SEO and clean metadata go a long way</li>
+</ul>
+
+<p>This project was more than just “set up a blog.” It was a deep dive into clean static site architecture and modern UI decisions — and I’m glad I went through it.</p>
+
+<p>You can check out the blog here: <a href="https://codyliska.github.io/codys-dev-blog">https://codyliska.github.io/codys-dev-blog</a></p>]]></content><author><name></name></author><category term="jekyll" /><category term="web-dev" /><category term="github-pages" /><summary type="html"><![CDATA[What started as a simple idea — “I want a clean blog to post my dev writeups” — turned into a detailed walkthrough of static site building, templating, versioning, and deployment. This post outlines the entire process I went through to build Cody’s Dev Blog, from the first layout concept to pushing a polished site to GitHub Pages.]]></summary></entry></feed>

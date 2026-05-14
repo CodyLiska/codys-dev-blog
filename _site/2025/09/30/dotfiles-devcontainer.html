@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Falling Down the Dotfiles + Devcontainer Rabbit Hole</title>
+  <meta name="description" content="I didn’t plan on spending my evening building a complete cross-platform dev environment — but here we are.
+
+">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <style>
+    .glass { border: 1px solid rgb(255 255 255 / 0.2); backdrop-filter: blur(4px); }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-900 text-slate-200 antialiased">
+  <nav class="text-center py-4 border-b border-white/10">
+    <a href="/codys-dev-blog/" class="text-2xl font-semibold hover:text-sky-400">Home</a>
+  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-10 prose prose-invert">
+  <h1>Falling Down the Dotfiles + Devcontainer Rabbit Hole</h1>
+  <p class="text-sm text-white/50">September 30, 2025</p>
+  
+  <p>I didn’t plan on spending my evening building a complete cross-platform dev environment — but here we are.</p>
+
+<!--more-->
+
+<p>It started with a simple frustration: switching between <strong>macOS</strong> and <strong>Windows (via WSL)</strong> for development. Both work fine individually, but the little differences — path quirks, shell defaults, git configs, VS Code behaving slightly differently — were creating a steady drip of friction. Every switch meant more mental overhead.</p>
+
+<h2 id="first-attempts">First Attempts</h2>
+
+<p>My first thought was: <em>“Can I just standardize around WSL on Windows?”</em> That got me halfway there — a Linux environment on Windows smooths over some platform-specific rough edges. But I still had macOS in the mix, and I didn’t want to keep remembering what worked where.</p>
+
+<p>I wanted <strong>one setup, one mental model</strong>.</p>
+
+<p>That’s when the rabbit hole really opened.</p>
+
+<h2 id="the-solution-dotfiles--devcontainers">The Solution: Dotfiles + Devcontainers</h2>
+
+<p>The answer turned out to be a combination of two tools:</p>
+
+<ul>
+  <li><strong>Dotfiles repo</strong> → central home for <code class="language-plaintext highlighter-rouge">.zshrc</code>, <code class="language-plaintext highlighter-rouge">.bashrc</code>, <code class="language-plaintext highlighter-rouge">.gitconfig</code>, aliases, Starship prompt config, etc.</li>
+  <li><strong>Devcontainers</strong> → reproducible development environments defined in <code class="language-plaintext highlighter-rouge">devcontainer.json</code>, fully supported by VS Code.</li>
+</ul>
+
+<p>By combining these, I now have:</p>
+
+<ul>
+  <li><strong>Consistent shells</strong> on both platforms (zsh on macOS, bash/zsh in WSL).</li>
+  <li><strong>Shared git config &amp; aliases</strong> so I don’t forget shortcuts.</li>
+  <li><strong>Starship prompt</strong> for consistency and style (with optional Powerlevel10k if I want to go fancier).</li>
+  <li><strong>Bootstrap script</strong> to set up Homebrew (macOS) or apt (WSL), Starship, NVM, Python, etc.</li>
+  <li><strong>Setup script</strong> to symlink dotfiles in place.</li>
+</ul>
+
+<p>And the cherry on top: a <strong>VS Code devcontainer</strong> that automatically applies the same environment (Python 3.11 + Node.js 20) with synced settings and recommended extensions.</p>
+
+<h2 id="repo-structure">Repo Structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dotfiles-devcontainer/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── FIRST_RUN.md
+├── dotfiles/
+│   ├── .aliases
+│   ├── .zshrc
+│   ├── .bashrc
+│   ├── .gitconfig
+│   ├── bootstrap.sh
+│   ├── setup.sh
+│   └── .config/starship.toml
+├── .devcontainer/
+│   └── devcontainer.json
+└── .vscode/
+    ├── settings.json
+    └── extensions.json
+</code></pre></div></div>
+
+<h2 id="first-run">First Run</h2>
+
+<p>To bootstrap a new machine:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dotfiles/bootstrap.sh
+./dotfiles/setup.sh
+</code></pre></div></div>
+
+<p>Then open the repo in VS Code — it applies the settings, suggests extensions, and asks if I want to reopen in the devcontainer. From there, I’m coding with <strong>the same environment everywhere</strong>.</p>
+
+<h2 id="reflections">Reflections</h2>
+
+<p>What started as “I just want fewer workarounds between macOS and Windows” turned into a polished setup:</p>
+
+<ul>
+  <li>Dotfiles that are clean, modular, and portable.</li>
+  <li>Devcontainers that lock in my stack.</li>
+  <li>A README + First Run guide so future-me doesn’t forget the steps.</li>
+</ul>
+
+<p>This evening’s rabbit hole paid off. Next time I spin up a new machine, it won’t take me hours to remember how to configure things. It’ll be one <code class="language-plaintext highlighter-rouge">git clone</code> and a couple shell scripts.</p>
+
+<p>And honestly? That feels like a win.</p>
+
+</main>
+
+  <footer class="mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/50 py-6">
+    © <span id="year"></span> Cody's Dev Blog — All rights reserved.<br>
+    <a href="https://github.com/CodyLiska/codys-dev-blog" class="text-sky-400 hover:underline">GitHub</a>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
